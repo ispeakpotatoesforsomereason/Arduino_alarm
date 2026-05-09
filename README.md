@@ -29,9 +29,6 @@ Connect your Arduino to the serial port specified in piano_recognizer.py. When t
 - **NumPy/SciPy** - Audio signal processing
 - **SQLite** - Database for storing audio fingerprints
 
-## Screenshot
-![Piano Vault Demo](screenshot.png)
-*Real-time piano recognition triggering Arduino actions*
 
 ## License
 MIT License - do whatever you want with it
