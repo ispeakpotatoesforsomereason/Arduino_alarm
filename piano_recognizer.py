@@ -1,34 +1,28 @@
-import os
 import serial
 import time
 from abracadabra import recognise
 
 try:
-    arduino = serial.Serial('/dev/cu.usbserial-10', 9600, timeout=1)
+    arduino = serial.Serial('/dev/cu.usbmodem1201', 9600, timeout=1)
     time.sleep(2)
 except:
-    print("serial port not found, your problem")
     arduino = None
 
-print("listening to your beautiful piano")
-
 while True:
-    
+    print("ok suona il tuo piano grazie")
     result = recognise.listen_to_song()
 
     if result:
-        _, song_name, confidence = result
-        print(f"Detected: {song_name} (Confidence: {confidence})")
+        result_str = str(result)
         
-        
-        if "Via Nazario Sauro" in song_name and confidence > 50:
-            print("unlocked, have fun eating an orange")
-            if arduino:
-                arduino.write('21ss4WSOSOskc2Spp+s#'.encode())
+        if "song" in result_str:
+            print("yippe adesso puoi mangiare la tua arancia")
             
+            if arduino:
+                arduino.write('21ss4WSOSOskc2Spp+s#\n'.encode())
+                arduino.flush()
+            break
             
             time.sleep(10) 
-    else:
-        print("not the song, keep playing...")
     
     time.sleep(0.5)
