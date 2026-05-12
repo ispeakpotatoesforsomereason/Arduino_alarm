@@ -1,3 +1,5 @@
+#scusa maestra se questo file è stato fatto con AI ma mi serviva aiuto a registrate le musiche perchè non mi funzionava all'inizio
+
 import os
 from abracadabra import recognise
 
